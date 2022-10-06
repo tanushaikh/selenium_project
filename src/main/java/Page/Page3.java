@@ -12,13 +12,13 @@ import org.testng.annotations.Test;
 		@Test
 		public void f() throws InterruptedException
 		{
-			System.setProperty("webdriver.gecko.driver","C:\\Users\\HCL\\Desktop\\Tanu1\\geckodriver-v0.31.0-win32\\geckodriver.exe");
-			DesiredCapabilities capabilities = new DesiredCapabilities();
-		    capabilities.setCapability("marionette",true);
-			WebDriver Driver=new FirefoxDriver();
+			//System.setProperty("webdriver.gecko.driver","C:\\Users\\HCL\\Desktop\\Tanu1\\geckodriver-v0.31.0-win32\\geckodriver.exe");
+			//DesiredCapabilities capabilities = new DesiredCapabilities();
+		  //  capabilities.setCapability("marionette",true);
+			//WebDriver Driver=new FirefoxDriver();
 			
-			//System.setProperty("webdriver.chrome.driver","C:\\Users\\HCL\\eclipse-workspace\\selenium4\\Drivers\\chromedriver.exe");
-			//WebDriver Driver=new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver","C:\\Users\\HCL\\eclipse-workspace\\selenium4\\Drivers\\chromedriver.exe");
+			WebDriver Driver=new ChromeDriver();
 			Driver.get("http://www.lambdatest.com");
 			System.out.println(Driver.getTitle());
 		WebElement allow=Driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/span[1]"));
@@ -34,7 +34,7 @@ import org.testng.annotations.Test;
 		FullName.sendKeys("Sakshi mane");
 		Thread.sleep(2000);
 		WebElement EmailID=Driver.findElement(By.id("email"));                                      
-		EmailID.sendKeys("sakshi@gmail.com");
+		EmailID.sendKeys("tanujashaikh66@gmail.com");
 		Thread.sleep(2000);
 		WebElement Password=Driver.findElement(By.id("userpassword"));
 		Password.sendKeys("Sakshi@123");

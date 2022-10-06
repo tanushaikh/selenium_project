@@ -1,22 +1,47 @@
 package Page;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
-	import org.openqa.selenium.By;
+
+	import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
 	import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+	@Test
 	public class Page1 {
+		
 		WebDriver Driver;
-		@Test
-		public void f() throws InterruptedException
-		{
-			System.setProperty("webdriver.edge.driver","\\chromedriver.exe");
-		WebDriver Driver=new ChromeDriver();
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\HCL\\eclipse-workspace\\selenium4\\Drivers\\chromedriver.exe");
-		//	WebDriver Driver=new ChromeDriver();
-		Driver.get("http://www.lambdatest.com");
-			System.out.println(Driver.getTitle());
+		static final String APP_URL = "http://www.lambdatest.com";
+	    static final String HOST_URL = "http://http://44.203.98.118/:4444/wd/hub";
+
+	    @BeforeMethod
+	    public void setUp()throws InterruptedException
+	 {
+	        ChromeOptions opt = new ChromeOptions();
+	        try {
+	            Driver = new RemoteWebDriver(new URL(HOST_URL), opt);
+	        } catch (MalformedURLException e) {
+	            e.printStackTrace();
+	        }
+
+	        Driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        Driver.get(APP_URL);
+	       
+	        
+	    
+	        
 		WebElement allow=Driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/span[1]"));
 	        allow.click();
 		WebElement a=Driver.findElement(By.xpath("/html/body/div[1]/div[1]/section[1]/div/div/div[1]/div[1]/a"));
@@ -44,10 +69,14 @@ import org.testng.annotations.Test;
 		Thread.sleep(2000);
 		}
 		
+			
 		}
+	
+		
+		
 		
 	
-
+	
 		
 
 
