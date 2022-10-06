@@ -24,7 +24,7 @@ import org.testng.annotations.Test;
 		
 		WebDriver Driver;
 		static final String APP_URL = "http://www.lambdatest.com";
-	    static final String HOST_URL = "http://http://44.203.98.118/:4444/wd/hub";
+	    static final String HOST_URL = "http://http://172.31.40.100/:4444/wd/hub";
 
 	    @BeforeMethod
 	    public void setUp()throws InterruptedException
